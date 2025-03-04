@@ -64,3 +64,28 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+## CMD
+Language Change
+- **sail artisan lang:publish**
+- **sail composer require laravel-lang/lang --dev**
+- **sail artisan lang:add ko**
+- **sail artisan lang:update**
+
+## Vendor Tailwind Pagination
+- **sail artisan vendor:publish --tag=laravel-pagination**
+- **Chapter22**
+
+## Telescope
+- **sail composer require laravel/telescope --dev**
+- **sail artisan telescope:install**
+- **sail artisan migrate**
+- **url : root/telescope**
+
+
+
+
+
+
+
+

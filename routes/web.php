@@ -1,10 +1,7 @@
 <?php
 
+use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\ProfileController;
-use App\Models\Article;
-use Carbon\Carbon;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -23,38 +20,12 @@ Route::middleware('auth')->group(function () {
 
 require __DIR__.'/auth.php';
 
-Route::get('/articles/create', function () {
-    return view('articles.create');
-})->name('articles.create');
-
-Route::post('/articles', function (Request $request) {
-
-    /* 유효성 확인 */
-    $attributes = $request->validate([
-        'body' => 'required|string|max:255'
-    ]);
-
-    /* Articles Database 저장 */
-    Article::create([
-        'body' => $attributes['body'],
-        'user_id' => Auth::id()
-    ]);
-
-    return 'success!';
-})->name('articles.post');
-
-Route::get('/articles', function () {
-    /* 최신순 페이지네이션 적용 (User 객체 포함) */
-    $articles = Article::with('user')->latest()->paginate(3);
-
-    /* 기존 파라미터 유지 */
-    $articles->withQueryString();
-
-    /* 가존 파라미터 추가 */
-    // $articles->appends(['filter' => 'name']);
-
-    /* Carbon (현재 날짜, 시간) 관련 핸들링 */
-    // dd(Carbon::now());
-
-    return view('articles.index', ['articles' => $articles]);
-})->name('articles.index');
+Route::controller(ArticleController::class)->group(function () {
+    Route::get('/articles', 'index')->name('articles.index');
+    Route::get('/articles/create', 'create')->name('articles.create');
+    Route::post('/articles', 'store')->name('articles.store');
+    Route::get('/articles/{article}', 'show')->name('articles.show');
+    Route::get('/articles/{article}/edit', 'edit')->name('articles.edit');
+    Route::put('/articles/{article}', 'update')->name('articles.update');
+    Route::delete('/articles/{article}', 'destroy')->name('articles.delete');
+});

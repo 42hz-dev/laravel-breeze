@@ -16,10 +16,10 @@
                         {{ __('대시보드') }}
                     </x-nav-link>
                     <x-nav-link :href="route('articles.create')" :active="request()->routeIs('articles.create')">
-                        {{ __('글쓰기') }}
+                        {{ __('글 쓰기') }}
                     </x-nav-link>
                     <x-nav-link :href="route('articles.index')" :active="request()->routeIs('articles.index')">
-                        {{ __('본문') }}
+                        {{ __('글 목록') }}
                     </x-nav-link>
                 </div>
             </div>
