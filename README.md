@@ -65,7 +65,7 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
 
-## CMD
+## Add Languages
 Language Change
 - **sail artisan lang:publish**
 - **sail composer require laravel-lang/lang --dev**
@@ -74,13 +74,19 @@ Language Change
 
 ## Vendor Tailwind Pagination
 - **sail artisan vendor:publish --tag=laravel-pagination**
-- **Chapter22**
 
 ## Telescope
 - **sail composer require laravel/telescope --dev**
 - **sail artisan telescope:install**
 - **sail artisan migrate**
 - **url : root/telescope**
+
+## Testing
+- **phpunit.xml file 에서 설정 값 확인(DB_DATABASE) 없을 시 생성 후 작업 (이름 변경 가능)**
+- **sail artisan make:test ArticleControllerTest**
+- **sail artisan test <-- 전체 테스트 코드 확인**
+- **sail artisan test --filter=ArticleControllerTest <-- 테스트 컨트롤러 지정 확인**
+- **sail artisan test --filter=ArticleControllerTest::Method Name <-- 테스트 컨트롤러 메소드 별 확인**
 
 
 
