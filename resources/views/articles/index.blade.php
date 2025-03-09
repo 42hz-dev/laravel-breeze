@@ -19,7 +19,7 @@
                                     <div class="flex flex-row">
                                         <p class="mr-1">
                                             <a class="button rounded bg-blue-500 px-2 py-1 text-xs text-white" href="{{ route('articles.edit', ['article' => $article]) }}">수정하기</a>
-                                            <form action="{{ route('articles.delete', ['article' => $article]) }}" method="post">
+                                            <form action="{{ route('articles.destroy', ['article' => $article]) }}" method="post">
                                                 @csrf
                                                 @method('delete')
                                                 <button type="submit" class="button rounded bg-red-500 px-2 py-1 text-xs text-white">삭제하기</button>

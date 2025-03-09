@@ -129,7 +129,7 @@ class ArticleControllerTest extends TestCase
     {
         $articles = Article::factory()->create();
         $this->actingAs($this->user)
-            ->delete(route('articles.delete', ['article' => $articles]))
+            ->delete(route('articles.destroy', ['article' => $articles]))
             ->assertRedirect(route('articles.index'));
 
         // 데이터베이스에 생성된 아이디가 없는지
